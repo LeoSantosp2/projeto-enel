@@ -1,0 +1,59 @@
+@charset "UTF-8";
+
+:root{
+    --cor1: #F2F2F2;
+    --cor2: #D94A8C;
+    --cor3: #048ABF;
+    --cor4: #7CBF69;
+    --cor5: #D91414;
+    --cor6: #0D0D0D;
+}
+
+body{
+    background-color: var(--cor4);
+    color: var(--cor6);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body h1{
+    text-align: center;
+}
+
+main{
+    background-color: var(--cor3);
+    max-width: 800px;
+    min-width: 400px;
+    margin: auto;
+    border-radius: 10px;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.650);
+}
+
+main h2{
+    text-align: center;
+}
+
+main p{
+    text-align: center;
+}
+
+main ul{
+    list-style: none;
+    columns: 2;
+    padding: auto;
+}
+
+#resultado{
+    width: 400px;
+    background-color: var(--cor1);
+    margin: auto;
+}
+
+#resultado ul{
+    columns: 1;
+    text-align: left;
+    padding-left: 10px;
+}
+
+#kwh{
+    width: 100px;
+}

@@ -14,20 +14,20 @@ var icms_200_r = 0.25
 var icms_sp_o = 0.18
 
 // Descontos do Residencial Baixa Renda
-var desc_30_te = te - (te * 0.72) //0.72 = 72%
-var desc_30_tuds = tusd - (tusd * 0.65)
+var desc_30_te = te - (te * 0.65)
+var desc_30_tusd = tusd - (tusd * 0.72) //0.72 = 72%
 
-var desc_31_100_te = te - (te * 0.50)
-var desc_31_100_tusd = tusd - (tusd * 0.40)
+var desc_31_100_te = te - (te * 0.40)
+var desc_31_100_tusd = tusd - (tusd * 0.50)
 
-var desc_101_220_te = te - (te * 0.30)
-var desc_101_220_tusd = tusd - (tusd * 0.10)
+var desc_101_220_te = te - (te * 0.10)
+var desc_101_220_tusd = tusd - (tusd * 0.30)
 
-var desc_220_te = te - (te * 0.25)
+var desc_220_tusd = tusd - (tusd * 0.25)
 
 // Descontos do Residencial Rural
-var desc_rr_te = te - (te * 0.30)
-var desc_rr_tuds = tusd - (tusd * 0.20)
+var desc_rr_te = te - (te * 0.20)
+var desc_rr_tuds = tusd - (tusd * 0.30)
 
 // Descontos do Serviço Público
 var desc_sp_te = te - (te * 0.40)
@@ -84,7 +84,7 @@ function calcular(){
         }
         else if(opc[1].checked){ // Residencial Baixa Renda
             if(converter_kwh <= 30){
-                var valor_base_br = desc_30_te + desc_30_tuds + converter_kwh
+                var valor_base_br = desc_30_te + desc_30_tusd + converter_kwh
 
                 var valor_pis = valor_base_br * pis
                 var valor_cofins = valor_base_br * cofins
@@ -95,7 +95,7 @@ function calcular(){
             <ul>
                 <li>kwh: ${converter_kwh}</li>
                 <li>Tarifa de Energia: R$${desc_30_te.toFixed(5)}</li>
-                <li>Tarifa de Distribuição: R$${desc_30_tuds.toFixed(5)}</li>
+                <li>Tarifa de Distribuição: R$${desc_30_tusd.toFixed(5)}</li>
                 <li>Valor Base: R$${valor_base_br.toFixed(2)}</li>
                 <li>Valor do Pis: R$${valor_pis.toFixed(2)}</li>
                 <li>Valor do Cofins: R$${valor_cofins.toFixed(2)}</li>
@@ -144,7 +144,7 @@ function calcular(){
             </ul>`
             }
             else{
-                var valor_base_br = desc_220_te + tusd + converter_kwh
+                var valor_base_br = desc_220_tusd + te + converter_kwh
 
                 var valor_pis = valor_base_br * pis
                 var valor_cofins = valor_base_br * cofins
@@ -154,8 +154,8 @@ function calcular(){
                 res.innerHTML = `<h1>Residencial Baixa Renda</h1>
             <ul>
                 <li>kwh: ${converter_kwh}</li>
-                <li>Tarifa de Energia: R$${desc_220_te.toFixed(5)}</li>
-                <li>Tarifa de Distribuição: R$${tusd.toFixed(5)}</li>
+                <li>Tarifa de Energia: R$${te.toFixed(5)}</li>
+                <li>Tarifa de Distribuição: R$${desc_220_tusd.toFixed(5)}</li>
                 <li>Valor Base: R$${valor_base_br.toFixed(2)}</li>
                 <li>Valor do Pis: R$${valor_pis.toFixed(2)}</li>
                 <li>Valor do Cofins: R$${valor_cofins.toFixed(2)}</li>

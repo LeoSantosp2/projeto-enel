@@ -29,7 +29,7 @@ body{
 main{
     background-color: var(--cor4);
     max-width: 800px;
-    min-width: 390px;
+    min-width: 300px;
     margin: auto;
     border-radius: 10px;
     box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.650);
@@ -52,7 +52,8 @@ main ul{
 }
 
 #resultado{
-    width: 400px;
+    max-width: 400px;
+    min-width: 250px;
     background-color: var(--cor1);
     border-radius: 10px;
     margin: auto;

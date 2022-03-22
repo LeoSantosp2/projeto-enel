@@ -5,11 +5,6 @@
     src: url('../Fontes/Insanibu.ttf') format('truetype');
 }
 
-@font-face {
-    font-family: philosopher;
-    src: url('../Fontes/Philosopher-Regular.ttf') format('truetype');
-}
-
 :root{
     --cor1: #F2F2F2;
     --cor2: #BCBCB6;
@@ -33,12 +28,13 @@ main{
     margin: auto;
     border-radius: 10px;
     box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.650);
-    font-family: philosopher, Arial, sans-serif;
+    font-family: Arial, sans-serif;
 }
 
 main h1{
-    font-family: insanibu, Arial, sans-serif;
+    padding-top: 10px;
     font-size: 20pt;
+    font-family: insanibu, Arial, sans-serif;
 }
 
 main p{
@@ -51,7 +47,7 @@ main ul{
     text-align: left;
 }
 
-#resultado{
+div.resultado{
     max-width: 400px;
     min-width: 250px;
     background-color: var(--cor1);
@@ -59,12 +55,26 @@ main ul{
     margin: auto;
 }
 
-#resultado ul{ 
+div.resultado > ul{ 
     columns: 1; 
-    padding-left: 10px;
+    padding: 10px;
     margin: auto;
 }
 
 #kwh{
     width: 100px;
+    height: 20px;
+    border: 0px;
+    border-radius: 10px;
+    outline: none;
+    padding: 5px;
+}
+
+button.btn-calc{
+    margin-bottom: 10px;
+    border-radius: 10px;
+    padding: 5px;
+    cursor: pointer;
+    border: 0px;
+    background-color: var(--cor1);
 }

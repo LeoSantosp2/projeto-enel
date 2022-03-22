@@ -5,56 +5,73 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="Icone/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="Estilo/style.css">
-    <title>Conta de Luz</title>
+    <link rel="stylesheet" href="css/style.css">
+    <title>Cálculo da Conta de Luz</title>
 </head>
 <body>
+
     <header>
-        <div id="logo">
-            <picture>
-                <img src="Imagens/Enel.png" alt="Logo da Enel">
-            </picture>
+
+        <div class="logo">
+
+            <picture><img src="Imagens/Enel.png" alt="Logo da Enel"></picture>
+
         </div>
+
     </header>
 
     <main>
+
         <h1>Opções</h1>
+
         <ul>
+
             <li>
+
                 <input type="radio" name="cliente" id="residencial" checked>
                 <label for="residencial">Residencial</label>
+
             </li>
 
             <li>
+
                 <input type="radio" name="cliente" id="baixa_renda">
                 <label for="baixa-renda">Residencial Baixa Renda</label>
+
             </li>
 
             <li>
+
                 <input type="radio" name="cliente" id="rural">
                 <label for="rural">Residencial Rural</label>
+
             </li>
 
             <li>
-                <input type="radio" name="cliente" id="servico_publico">
+
+                <input type="radio" name="cliente" id="servico-publico">
                 <label for="servico-publico">Serviço Público</label>
+
             </li>
 
             <li>
+
                 <input type="radio" name="cliente" id="outros">
                 <label for="outros">Outros</label>
+
             </li>
+
         </ul>
 
-        <div id="resultado">
-
-        </div>
+        <div class="resultado"></div>
 
         <p>Kwh Gasta: <input type="text" name="kwh" id="kwh"></p>
 
-        <p><input type="button" value="Calcular" id="botao"  onclick="calcular()"></p>
+        <button class="btn-calc">Calcular</button>
+
     </main>
 
-    <script src="JS/script.js"></script>
+    <script src="js/script.js"></script>
+    
 </body>
 </html>

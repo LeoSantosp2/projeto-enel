@@ -1,9 +1,5 @@
-const kwh = document.getElementById('kwh')
-const res = document.querySelector('.resultado')
-const opcao = document.getElementsByName('cliente')
-
 class Clientes{
-    constructor(kwh, titulo){
+    constructor(titulo){
         this.te = 0.25588
         this.tuds = 0.25971
         this.consumoMinimo = 50
@@ -11,7 +7,8 @@ class Clientes{
         this.cofins = 0.0439
         this.cosip = 9.70
         this.icms = 0
-        this.kwh = kwh
+        this.kwh = document.getElementById('kwh')
+        this.res = document.querySelector('.resultado')
         this.titulo = titulo
     }
 
@@ -40,7 +37,7 @@ class Clientes{
     }
 
     resultado(){
-        res.innerHTML = `<h1>${this.titulo}</h1>
+        this.res.innerHTML = `<h1>${this.titulo}</h1>
         <ul>
 
             <li>kwh: ${this.kwh.value}</li>
@@ -59,8 +56,8 @@ class Clientes{
 }
 
 class Residencial extends Clientes{
-    constructor(kwh, titulo){
-        super(kwh, titulo)
+    constructor(titulo){
+        super(titulo)
 
         if(this.kwh.value < 50){
             this.kwh.value = this.consumoMinimo
@@ -81,8 +78,8 @@ class Residencial extends Clientes{
 }
 
 class BaixaRenda extends Clientes{
-    constructor(kwh, titulo){
-        super(kwh, titulo)
+    constructor(titulo){
+        super(titulo)
 
         this.cosip = 0
 
@@ -106,8 +103,8 @@ class BaixaRenda extends Clientes{
 }
 
 class ResidencialRural extends Clientes{
-    constructor(kwh, titulo){
-        super(kwh, titulo)
+    constructor(titulo){
+        super(titulo)
 
         if(this.kwh.value < 50){
             this.kwh.value = this.consumoMinimo
@@ -134,8 +131,8 @@ class ResidencialRural extends Clientes{
 }
 
 class ServicoPublico extends Clientes{
-    constructor(kwh, titulo){
-        super(kwh, titulo)
+    constructor(titulo){
+        super(titulo)
 
         if(this.kwh.value < 50){
             this.kwh.value = this.consumoMinimo
@@ -157,8 +154,8 @@ class ServicoPublico extends Clientes{
 }
 
 class Outros extends Clientes{
-    constructor(kwh, titulo){
-        super(kwh, titulo)
+    constructor(titulo){
+        super(titulo)
 
         if(this.kwh.value < 50){
             this.kwh.value = this.consumoMinimo
@@ -173,6 +170,8 @@ class Outros extends Clientes{
 }
 
 function calcular(){
+    const opcao = document.getElementsByName('cliente')
+
     document.addEventListener('click', e =>{
         const event = e.target
 
@@ -182,27 +181,27 @@ function calcular(){
             }
             else{
                 if(opcao[0].checked){
-                    const residencial = new Residencial(kwh, 'Residencial')
+                    const residencial = new Residencial('Residencial')
                     residencial.resultado()
                     this.kwh.value = ''
                 }
                 else if(opcao[1].checked){
-                    const baixaRenda = new BaixaRenda(kwh, 'Residencial Baixa Renda')
+                    const baixaRenda = new BaixaRenda('Residencial Baixa Renda')
                     baixaRenda.resultado()
                     this.kwh.value = ''
                 }
                 else if(opcao[2].checked){
-                    const residencialRural = new ResidencialRural(kwh, 'Residencial Rural')
+                    const residencialRural = new ResidencialRural('Residencial Rural')
                     residencialRural.resultado()
                     this.kwh.value = ''
                 }
                 else if(opcao[3].checked){
-                    const servicoPublico = new ServicoPublico(kwh, 'Serviço Público')
+                    const servicoPublico = new ServicoPublico('Serviço Público')
                     servicoPublico.resultado()
                     this.kwh.value = ''
                 }
                 else if(opcao[4].checked){
-                    const outros = new Outros(kwh, 'Outros')
+                    const outros = new Outros('Outros')
                     outros.resultado()
                     this.kwh.value = ''
                 }
